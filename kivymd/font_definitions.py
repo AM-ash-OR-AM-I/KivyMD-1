@@ -40,6 +40,21 @@ fonts = [
         "fn_italic": fonts_path + "Roboto-BlackItalic.ttf",
     },
     {
+        "name": "Marvel-Bold",
+        "fn_regular": fonts_path + "Marvel-Bold.ttf",
+        "fn_italic": fonts_path + "Marvel-Bold.ttf",
+    },
+    {
+        "name": "Poppins",
+        "fn_regular": fonts_path + "Poppins-Regular.ttf",
+        "fn_italic": fonts_path + "Poppins-Regular.ttf",
+    },
+    {
+        "name": "Poppins-Bold",
+        "fn_regular": fonts_path + "Poppins-Bold.ttf",
+        "fn_italic": fonts_path + "Poppins-Bold.ttf",
+    },
+    {
         "name": "Icons",
         "fn_regular": fonts_path + "materialdesignicons-webfont.ttf",
     },
@@ -67,3 +82,4 @@ theme_font_styles = [
 """
 .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/font-styles-2.png
 """
+

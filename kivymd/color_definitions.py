@@ -1,21 +1,20 @@
-"""
-Themes/Color Definitions
-========================
+from kivy.properties import get_color_from_hex
 
-.. seealso::
+'''
+Method to create light colors...
 
-   `Material Design spec, The color system <https://material.io/design/color/the-color-system.html>`_
+dict={}
+    col = get_color_from_hex('FF004C')
+    col1=get_color_from_hex('296DFF')
+    col2=get_color_from_hex('A200FF')
+    col3 = get_color_from_hex('FF5722')
+    col[3],col1[3],col[3],col3[3] = 0.2,0.3,0.3,0.3
+    dict['Pink'],dict['Blue'],dict['DeepPurple'],dict['DeepOrange']=col,col1,col2,col3
+    
+'''
 
-   `Material Design spec, The color tool <https://material.io/resources/color/#!/?view.left=0&view.right=0>`_
-
-Material colors palette to use in :class:`kivymd.theming.ThemeManager`.
-:data:`~colors` is a dict-in-dict where the first key is a value from
-:data:`~palette` and the second key is a value from :data:`~hue`. Color is a hex
-value, a string of 6 characters (0-9, A-F) written in uppercase.
-
-For example, ``colors["Red"]["900"]`` is ``"B71C1C"``.
-"""
-
+dark_colors={'Pink': [0.6313725490196078, 0.00784313725490196, 0.19215686274509805, 1.0], 'DeepPurple': [0.3607843137254902, 0.0, 0.5686274509803921, 1.0], 'Blue': [0.10980392156862745, 0.27058823529411763, 0.6196078431372549, 1.0], 'DeepOrange': [0.6784313725490196, 0.23921568627450981, 0.10196078431372549, 1.0]}
+custom_light_color={'Red': [0.9568627450980393, 0.2627450980392157, 0.21176470588235294, 0.25], 'Pink': [1.0, 0.0, 0.2980392156862745, 0.25], 'Purple': [0.611764705882353, 0.15294117647058825, 0.6901960784313725, 0.25], 'DeepPurple': [0.6352941176470588, 0.0, 1.0, 0.25], 'Indigo': [0.24705882352941178, 0.3176470588235294, 0.7098039215686275, 0.25], 'Blue': [0.1607843137254902, 0.42745098039215684, 1.0, 0.25], 'LightBlue': [0.011764705882352941, 0.6627450980392157, 0.9568627450980393, 0.25], 'Cyan': [0.0, 0.9215686274509803, 0.8901960784313725, 0.25], 'Teal': [0.0, 0.5882352941176471, 0.5333333333333333, 0.25], 'Green': [0.2980392156862745, 0.6862745098039216, 0.3137254901960784, 0.25], 'LightGreen': [0.5450980392156862, 0.7647058823529411, 0.2901960784313726, 0.25], 'Lime': [0.803921568627451, 0.8627450980392157, 0.2235294117647059, 0.25], 'Yellow': [1.0, 0.9215686274509803, 0.23137254901960785, 0.25], 'Amber': [1.0, 0.7568627450980392, 0.027450980392156862, 0.25], 'Orange': [1.0, 0.596078431372549, 0.0, 0.25], 'DeepOrange': [1.0, 0.3411764705882353, 0.13333333333333333, 0.25], 'Brown': [0.4745098039215686, 0.3333333333333333, 0.2823529411764706, 0.25], 'Gray': [0.6196078431372549, 0.6196078431372549, 0.6196078431372549, 0.25], 'BlueGray': [0.3764705882352941, 0.49019607843137253, 0.5450980392156862, 0.25]}
 colors = {
     "Red": {
         "50": "FFEBEE",
@@ -71,7 +70,7 @@ colors = {
         "200": "B39DDB",
         "300": "9575CD",
         "400": "7E57C2",
-        "500": "673AB7",
+        "500": "6200EA",
         "600": "5E35B1",
         "700": "512DA8",
         "800": "4527A0",
@@ -103,7 +102,7 @@ colors = {
         "200": "90CAF9",
         "300": "64B5F6",
         "400": "42A5F5",
-        "500": "2196F3",
+        "500": "2962FF",
         "600": "1E88E5",
         "700": "1976D2",
         "800": "1565C0",
@@ -135,7 +134,7 @@ colors = {
         "200": "80DEEA",
         "300": "4DD0E1",
         "400": "26C6DA",
-        "500": "00BCD4",
+        "500": "00D8D4",
         "600": "00ACC1",
         "700": "0097A7",
         "800": "00838F",
@@ -151,7 +150,7 @@ colors = {
         "200": "80CBC4",
         "300": "4DB6AC",
         "400": "26A69A",
-        "500": "009688",
+        "500": "00BFA5",
         "600": "00897B",
         "700": "00796B",
         "800": "00695C",
@@ -167,7 +166,7 @@ colors = {
         "200": "A5D6A7",
         "300": "81C784",
         "400": "66BB6A",
-        "500": "4CAF50",
+        "500": "00C853",
         "600": "43A047",
         "700": "388E3C",
         "800": "2E7D32",
@@ -330,9 +329,9 @@ colors = {
     },
     "Dark": {
         "StatusBar": "000000",
-        "AppBar": "1f1f1f",
+        "AppBar": "262626",
         "Background": "121212",
-        "CardsDialogs": "212121",
+        "CardsDialogs": "262626",
         "FlatButtonDown": "999999",
     },
 }
@@ -352,7 +351,7 @@ To demonstrate the shades of the palette, you can run the following code:
     from kivymd.uix.tab import MDTabsBase
 
     demo = '''
-    <Root@MDBoxLayout>
+    <Root@BoxLayout>
         orientation: 'vertical'
 
         MDToolbar:
@@ -365,29 +364,29 @@ To demonstrate the shades of the palette, you can run the following code:
             height: "48dp"
             tab_indicator_anim: False
 
-        RecycleView:
-            id: rv
-            key_viewclass: "viewclass"
-            key_size: "height"
+        ScrollView:
 
-            RecycleBoxLayout:
-                default_size: None, dp(48)
-                default_size_hint: 1, None
-                size_hint_y: None
-                height: self.minimum_height
-                orientation: "vertical"
+            MDList:
+                id: box
 
 
-    <ItemColor>
+    <ItemColor>:
         size_hint_y: None
         height: "42dp"
+
+        canvas:
+            Color:
+                rgba: root.color
+            Rectangle:
+                size: self.size
+                pos: self.pos
 
         MDLabel:
             text: root.text
             halign: "center"
 
 
-    <Tab>
+    <Tab>:
     '''
 
     from kivy.factory import Factory
@@ -398,7 +397,7 @@ To demonstrate the shades of the palette, you can run the following code:
         pass
 
 
-    class ItemColor(MDBoxLayout):
+    class ItemColor(BoxLayout):
         text = StringProperty()
         color = ListProperty()
 
@@ -416,16 +415,13 @@ To demonstrate the shades of the palette, you can run the following code:
             return self.screen
 
         def on_tab_switch(self, instance_tabs, instance_tab, instance_tabs_label, tab_text):
-            self.screen.ids.rv.data = []
-            if not tab_text:
-                tab_text = 'Red'
+            self.screen.ids.box.clear_widgets()
             for value_color in colors[tab_text]:
-                self.screen.ids.rv.data.append(
-                    {
-                        "viewclass": "ItemColor",
-                        "md_bg_color": get_color_from_hex(colors[tab_text][value_color]),
-                        "text": value_color,
-                    }
+                self.screen.ids.box.add_widget(
+                    ItemColor(
+                        color=get_color_from_hex(colors[tab_text][value_color]),
+                        text=value_color,
+                    )
                 )
 
         def on_start(self):
@@ -948,3 +944,4 @@ theme_colors = [
     "On_Error",
 ]
 """Valid theme colors."""
+
