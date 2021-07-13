@@ -1,420 +1,3 @@
-"""
-Components/Button
-=================
-
-.. seealso::
-
-    `Material Design spec, Buttons <https://material.io/components/buttons>`_
-
-    `Material Design spec, Buttons: floating action button <https://material.io/components/buttons-floating-action-button>`_
-
-.. rubric:: Buttons allow users to take actions, and make choices,
-    with a single tap.
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/buttons.png
-    :align: center
-
-`KivyMD` provides the following button classes for use:
-
-- MDIconButton_
-- MDFloatingActionButton_
-- MDFlatButton_
-- MDRaisedButton_
-- MDRectangleFlatButton_
-- MDRectangleFlatIconButton_
-- MDRoundFlatButton_
-- MDRoundFlatIconButton_
-- MDFillRoundFlatButton_
-- MDFillRoundFlatIconButton_
-- MDTextButton_
-- MDFloatingActionButtonSpeedDial_
-
-.. MDIconButton:
-MDIconButton
-------------
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/md-icon-button.gif
-    :align: center
-
-.. code-block:: python
-
-    from kivy.lang import Builder
-
-    from kivymd.app import MDApp
-
-    KV = '''
-    MDScreen:
-
-        MDIconButton:
-            icon: "language-python"
-            pos_hint: {"center_x": .5, "center_y": .5}
-    '''
-
-
-    class Example(MDApp):
-        def build(self):
-            return Builder.load_string(KV)
-
-
-    Example().run()
-
-The :class:`~MDIconButton.icon` parameter must have the name of the icon
-from ``kivymd/icon_definitions.py`` file.
-
-You can also use custom icons:
-
-.. code-block:: kv
-
-    MDIconButton:
-        icon: "data/logo/kivy-icon-256.png"
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/md-icon-custom-button.gif
-    :align: center
-
-By default, :class:`~MDIconButton` button has a size ``(dp(48), dp (48))``.
-Use :class:`~BaseButton.user_font_size` attribute to resize the button:
-
-.. code-block:: kv
-
-    MDIconButton:
-        icon: "android"
-        user_font_size: "64sp"
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/md-icon-button-user-font-size.gif
-    :align: center
-
-By default, the color of :class:`~MDIconButton`
-(depending on the style of the application) is black or white.
-You can change the color of :class:`~MDIconButton` as the text color
-of :class:`~kivymd.uix.label.MDLabel`:
-
-.. code-block:: kv
-
-    MDIconButton:
-        icon: "android"
-        theme_text_color: "Custom"
-        text_color: app.theme_cls.primary_color
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/md-icon-button-theme-text-color.png
-    :align: center
-
-.. MDFloatingActionButton:
-MDFloatingActionButton
-----------------------
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/md-floating-action-button.png
-    :align: center
-
-The above parameters for :class:`~MDIconButton` apply
-to :class:`~MDFloatingActionButton`.
-
-To change :class:`~MDFloatingActionButton` background, use the
-``md_bg_color`` parameter:
-
-.. code-block:: kv
-
-    MDFloatingActionButton:
-        icon: "android"
-        md_bg_color: app.theme_cls.primary_color
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/md-floating-action-button-md-bg-color.png
-    :align: center
-
-The length of the shadow is controlled by the ``elevation_normal`` parameter:
-
-.. code-block:: kv
-
-    MDFloatingActionButton:
-        icon: "android"
-        elevation_normal: 12
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/md-floating-action-button-elevation-normal.png
-    :align: center
-
-
-.. MDFlatButton:
-MDFlatButton
-------------
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/md-flat-button.gif
-    :align: center
-
-To change the text color of: class:`~MDFlatButton` use the ``text_color`` parameter:
-
-.. code-block:: kv
-
-    MDFlatButton:
-        text: "MDFLATBUTTON"
-        theme_text_color: "Custom"
-        text_color: 0, 0, 1, 1
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/md-flat-button-text-color.png
-    :align: center
-
-Or use markup:
-
-.. code-block:: kv
-
-    MDFlatButton:
-        text: "[color=#00ffcc]MDFLATBUTTON[/color]"
-
-To specify the font size and font name, use the parameters as in the usual
-`Kivy` buttons:
-
-.. code-block:: kv
-
-    MDFlatButton:
-        text: "MDFLATBUTTON"
-        font_size: "18sp"
-        font_name: "path/to/font"
-
-.. MDRaisedButton:
-MDRaisedButton
---------------
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/md-raised-button.gif
-    :align: center
-
-This button is similar to the :class:`~MDFlatButton` button except that you
-can set the background color for :class:`~MDRaisedButton`:
-
-.. code-block:: kv
-
-    MDRaisedButton:
-        text: "MDRAISEDBUTTON"
-        md_bg_color: 1, 0, 1, 1
-
-
-.. MDRectangleFlatButton:
-MDRectangleFlatButton
----------------------
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/md-rectangle-flat-button.gif
-    :align: center
-
-.. code-block:: kv
-
-    MDRectangleFlatButton:
-        text: "MDRECTANGLEFLATBUTTON"
-        theme_text_color: "Custom"
-        text_color: 1, 0, 0, 1
-        line_color: 0, 0, 1, 1
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/md-rectangle-flat-button-md-bg-color.png
-    :align: center
-
-.. MDRectangleFlatIconButton:
-MDRectangleFlatIconButton
--------------------------
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/md-rectangle-flat-icon-button.png
-    :align: center
-
-Button parameters :class:`~MDRectangleFlatButton` are the same as
-button :class:`~MDRectangleFlatButton`:
-
-.. code-block:: kv
-
-    MDRectangleFlatIconButton:
-        icon: "android"
-        text: "MDRECTANGLEFLATICONBUTTON"
-        theme_text_color: "Custom"
-        text_color: 0, 0, 1, 1
-        line_color: 1, 0, 1, 1
-        icon_color: 1, 0, 0, 1
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/md-rectangle-flat-icon-button-custom.png
-    :align: center
-
-Without border
---------------
-
-.. code-block:: python
-
-    from kivymd.app import MDApp
-    from kivymd.uix.screen import MDScreen
-    from kivymd.uix.button import MDRectangleFlatIconButton
-
-
-    class Example(MDApp):
-        def build(self):
-            screen = MDScreen()
-            screen.add_widget(
-                MDRectangleFlatIconButton(
-                    text="MDRectangleFlatIconButton",
-                    icon="language-python",
-                    line_color=(0, 0, 0, 0),
-                    pos_hint={"center_x": .5, "center_y": .5},
-                )
-            )
-            return screen
-
-
-    Example().run()
-
-.. code-block:: kv
-
-    MDRectangleFlatIconButton:
-        text: "MDRectangleFlatIconButton"
-        icon: "language-python"
-        line_color: 0, 0, 0, 0
-        pos_hint: {"center_x": .5, "center_y": .5}
-
-.. MDRoundFlatButton:
-MDRoundFlatButton
------------------
-
-.. code-block:: kv
-
-    MDRoundFlatButton:
-        text: "MDROUNDFLATBUTTON"
-        text_color: 0, 1, 0, 1
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/md-round-flat-button-text-color.png
-    :align: center
-
-.. MDRoundFlatIconButton:
-MDRoundFlatIconButton
----------------------
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/md-round-flat-icon-button.png
-    :align: center
-
-Button parameters :class:`~MDRoundFlatIconButton` are the same as
-button :class:`~MDRoundFlatButton`:
-
-.. code-block:: kv
-
-    MDRoundFlatIconButton:
-        icon: "android"
-        text: "MDROUNDFLATICONBUTTON"
-
-.. MDFillRoundFlatButton:
-MDFillRoundFlatButton
----------------------
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/md-fill-round-flat-button.png
-    :align: center
-
-Button parameters :class:`~MDFillRoundFlatButton` are the same as
-button :class:`~MDRaisedButton`.
-
-.. MDFillRoundFlatIconButton:
-MDFillRoundFlatIconButton
--------------------------
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/md-fill-round-flat-icon-button.png
-    :align: center
-
-Button parameters :class:`~MDFillRoundFlatIconButton` are the same as
-button :class:`~MDRaisedButton`.
-
-.. note:: Notice that the width of the :class:`~MDFillRoundFlatIconButton`
-    button matches the size of the button text.
-
-.. MDTextButton:
-MDTextButton
-------------
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/md-text-button.png
-    :align: center
-
-.. code-block:: kv
-
-    MDTextButton:
-        text: "MDTEXTBUTTON"
-        custom_color: 0, 1, 0, 1
-
-.. MDFloatingActionButtonSpeedDial:
-MDFloatingActionButtonSpeedDial
--------------------------------
-
-.. Note:: See the full list of arguments in the class
-    :class:`~MDFloatingActionButtonSpeedDial`.
-
-.. code-block:: python
-
-    from kivy.lang import Builder
-
-    from kivymd.app import MDApp
-
-    KV = '''
-    MDScreen:
-
-        MDFloatingActionButtonSpeedDial:
-            data: app.data
-            root_button_anim: True
-    '''
-
-
-    class Example(MDApp):
-        data = {
-            'Python': 'language-python',
-            'PHP': 'language-php',
-            'C++': 'language-cpp',
-        }
-
-        def build(self):
-            return Builder.load_string(KV)
-
-
-    Example().run()
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/MDFloatingActionButtonSpeedDial.gif
-    :align: center
-
-Or without KV Language:
-
-.. code-block:: python
-
-    from kivymd.uix.screen import MDScreen
-    from kivymd.app import MDApp
-    from kivymd.uix.button import MDFloatingActionButtonSpeedDial
-
-
-    class Example(MDApp):
-        data = {
-            'Python': 'language-python',
-            'PHP': 'language-php',
-            'C++': 'language-cpp',
-        }
-
-        def build(self):
-            screen = MDScreen()
-            speed_dial = MDFloatingActionButtonSpeedDial()
-            speed_dial.data = self.data
-            speed_dial.root_button_anim = True
-            screen.add_widget(speed_dial)
-            return screen
-
-
-    Example().run()
-
-You can use various types of animation of labels for buttons on the stack:
-
-.. code-block:: kv
-
-    MDFloatingActionButtonSpeedDial:
-        hint_animation: True
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/MDFloatingActionButtonSpeedDial-hint.gif
-    :align: center
-
-You can set your color values ​​for background, text of buttons etc:
-
-.. code-block:: kv
-
-    MDFloatingActionButtonSpeedDial:
-        bg_hint_color: app.theme_cls.primary_light
-
-.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/kivymddoc/MDFloatingActionButtonSpeedDial-hint-color.png
-    :align: center
-
-.. seealso::
-
-    `See full example <https://github.com/kivymd/KivyMD/wiki/Components-Button>`_
-"""
-
 __all__ = (
     "MDIconButton",
     "MDFloatingActionButton",
@@ -445,6 +28,7 @@ from kivy.lang import Builder
 from kivy.metrics import dp
 from kivy.properties import (
     BooleanProperty,
+    BoundedNumericProperty,
     ColorProperty,
     DictProperty,
     NumericProperty,
@@ -527,7 +111,7 @@ Builder.load_string(
     MDIcon:
         id: lbl_txt
         icon: root.icon
-        font_size: root.user_font_size if root.user_font_size else self.font_size
+        font_size: dp(.63*root.user_font_size) if root.user_font_size else self.font_size
         font_name: root.font_name if root.font_name else self.font_name
         theme_text_color: root.theme_text_color
         text_color:
@@ -538,6 +122,7 @@ Builder.load_string(
         valign: "middle"
         halign: "center"
         opposite_colors: root.opposite_colors
+
 
 
 <MDRoundFlatButton>
@@ -724,6 +309,7 @@ Builder.load_string(
     theme_text_color: "Custom"
     # theme_text_color: root.theme_text_color
     # opposite_colors: root.opposite_colors
+    elevation: 10
     on_size: root.set_size(0)
 
 
@@ -884,7 +470,7 @@ class BaseButton(ThemableBehavior, ButtonBehavior, AnchorLayout):
     and defaults to `None`.
     """
 
-    _radius = NumericProperty(0)
+    _radius = NumericProperty(1)
     _md_bg_color = ColorProperty(None)  # last current button color
 
     def __init__(self, **kwargs):
@@ -970,9 +556,9 @@ class BasePressedButton(BaseButton):
 
     def on_touch_up(self, touch):
         if (
-            self.collide_point(touch.x, touch.y)
-            and self.animation_fade_bg
-            and not self.disabled
+                self.collide_point(touch.x, touch.y)
+                and self.animation_fade_bg
+                and not self.disabled
         ):
             self.animation_fade_bg.stop_property(self, "md_bg_color")
             Animation(
@@ -989,13 +575,15 @@ class BaseRectangularButton(
     BaseButton,
 ):
     """Base class for all rectangular buttons."""
-
-    def on_width(self, *args):
-        if self.width < 88:
-            self.width = 88
+    ripple_alpha = .3
+    ripple_duration_in_fast = .2
+    ripple_duration_out = .1
+    ripple_func_in = 'in_quad'
+    ripple_func_out = 'out_quad'
 
 
 class BaseFlatButton(BaseRectangularButton):
+
     def update_md_bg_color(self, instance, value):
         """Called when the application color palette changes."""
 
@@ -1008,20 +596,6 @@ class BaseFlatButton(BaseRectangularButton):
             self.theme_text_color = "Custom"
             self.text_color = self.theme_cls.primary_color
 
-    def on_md_bg_color(self, instance, value):
-        """
-        We override this method, thus prohibiting setting the background color
-        for the button.
-
-        Allows to set the background color only in the rangefrom
-        [0.0, 0.0, 0.0, 0.0] to [0.0, 0.0, 0.0, 0.1]. This color is set in
-        the :class:`BasePressedButton` class when the button is pressed and
-        Ignore other custom colors.
-        """
-
-        if value[:-1] != [0.0, 0.0, 0.0]:
-            self.md_bg_color = [0.0, 0.0, 0.0, 0.0]
-
     def on_disabled(self, instance, value):
         if value and not self.disabled:
             self.md_bg_color = (
@@ -1030,8 +604,7 @@ class BaseFlatButton(BaseRectangularButton):
                 else self.theme_cls.disabled_hint_text_color
             )
         else:
-            if self._md_bg_color:
-                self.md_bg_color = self._md_bg_color
+            self.md_bg_color = [0.0, 0.0, 0.0, 0.0]
 
     def on_elevation(self, instance, value):
         """
@@ -1057,7 +630,7 @@ class BaseElevationButton(CommonElevationBehavior, BaseButton):
 
     """
 
-    _elevation_raised = NumericProperty()
+    _elevation_raised = NumericProperty(10)
     _anim_raised = None
 
     def __init__(self, **kwargs):
@@ -1166,9 +739,9 @@ class MDRaisedButton(BaseRectangularButton, BaseElevationButton):
 
     def update_text_color(self, *args):
         if self.text_color in (
-            [0.0, 0.0, 0.0, 0.87],
-            [0.0, 0.0, 0.0, 1.0],
-            [1.0, 1.0, 1.0, 1.0],
+                [0.0, 0.0, 0.0, 0.87],
+                [0.0, 0.0, 0.0, 1.0],
+                [1.0, 1.0, 1.0, 1.0],
         ):
             self.text_color = text_colors[self.theme_cls.primary_palette][
                 self.theme_cls.primary_hue
@@ -1176,6 +749,7 @@ class MDRaisedButton(BaseRectangularButton, BaseElevationButton):
 
 
 class MDFlatButton(BaseFlatButton):
+
     md_bg_color = ColorProperty([0.0, 0.0, 0.0, 0.0])
 
 
@@ -1240,7 +814,7 @@ class MDRoundFlatButton(MDFlatButton):
     and defaults to `None`.
     """
 
-    _radius = NumericProperty(18)
+    _radius = NumericProperty(30)
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -1270,7 +844,7 @@ class MDRoundFlatButton(MDFlatButton):
 
 
 class MDRoundFlatIconButton(MDRoundFlatButton):
-    icon = StringProperty("android")
+    icon = StringProperty("trophy")
     """
     Button icon.
 
@@ -1312,7 +886,7 @@ class MDRoundFlatIconButton(MDRoundFlatButton):
         self.remove_widget(self.ids.lbl_txt)
 
 
-class MDFillRoundFlatButton(MDRoundFlatButton):
+class MDFillRoundFlatButton(MDRoundFlatButton, BaseElevationButton):
     opposite_colors = BooleanProperty(True)
 
     def __init__(self, **kwargs):
@@ -1324,9 +898,9 @@ class MDFillRoundFlatButton(MDRoundFlatButton):
 
     def set_text_color(self, interval):
         if self.text_color in (
-            [0.0, 0.0, 0.0, 0.87],
-            [0.0, 0.0, 0.0, 1.0],
-            [1.0, 1.0, 1.0, 1.0],
+                [0.0, 0.0, 0.0, 0.87],
+                [0.0, 0.0, 0.0, 1.0],
+                [1.0, 1.0, 1.0, 1.0],
         ):
             self.text_color = text_colors[self.theme_cls.primary_palette][
                 self.theme_cls.primary_hue
@@ -1361,9 +935,9 @@ class MDFillRoundFlatIconButton(MDRoundFlatIconButton):
         self.md_bg_color = self.theme_cls._get_primary_color()
         self.update_text_color(instance, value)
         if self.icon_color in (
-            [0.0, 0.0, 0.0, 0.87],
-            [0.0, 0.0, 0.0, 1.0],
-            [1.0, 1.0, 1.0, 1.0],
+                [0.0, 0.0, 0.0, 0.87],
+                [0.0, 0.0, 0.0, 1.0],
+                [1.0, 1.0, 1.0, 1.0],
         ):
             self.icon_color = text_colors[self.theme_cls.primary_palette][
                 self.theme_cls.primary_hue
@@ -1371,9 +945,9 @@ class MDFillRoundFlatIconButton(MDRoundFlatIconButton):
 
     def update_text_color(self, *args):
         if self.text_color in (
-            [0.0, 0.0, 0.0, 0.87],
-            [0.0, 0.0, 0.0, 1.0],
-            [1.0, 1.0, 1.0, 1.0],
+                [0.0, 0.0, 0.0, 0.87],
+                [0.0, 0.0, 0.0, 1.0],
+                [1.0, 1.0, 1.0, 1.0],
         ):
             self.text_color = text_colors[self.theme_cls.primary_palette][
                 self.theme_cls.primary_hue
@@ -1425,10 +999,10 @@ class MDIconButton(BaseRoundButton, BasePressedButton):
         """
 
         self.width = (
-            "48dp" if not self.user_font_size else dp(self.user_font_size + 23)
+            "48dp" if not self.user_font_size else dp(self.user_font_size)
         )
         self.height = (
-            "48dp" if not self.user_font_size else dp(self.user_font_size + 23)
+            "48dp" if not self.user_font_size else dp(self.user_font_size)
         )
 
     def update_md_bg_color(self, instance, value):
@@ -1458,9 +1032,9 @@ class MDFloatingActionButton(
 
     def update_text_color(self, *args):
         if self.text_color in (
-            [0.0, 0.0, 0.0, 0.87],
-            [0.0, 0.0, 0.0, 1.0],
-            [1.0, 1.0, 1.0, 1.0],
+                [0.0, 0.0, 0.0, 0.87],
+                [0.0, 0.0, 0.0, 1.0],
+                [1.0, 1.0, 1.0, 1.0],
         ):
             self.text_color = text_colors[self.theme_cls.primary_palette][
                 self.theme_cls.primary_hue
@@ -1471,8 +1045,12 @@ class MDFloatingActionButton(
             self.md_bg_color = self.theme_cls.primary_color
 
     def set_size(self, interval):
-        self.width = "56dp"
-        self.height = "56dp"
+        self.width = (
+            "56dp" if not self.user_font_size else dp(self.user_font_size)
+        )
+        self.height = (
+            "56dp" if not self.user_font_size else dp(self.user_font_size)
+        )
 
     def on_touch_down(self, touch):
         super(MDFloatingActionButton, self).on_touch_down(touch)
@@ -1816,20 +1394,18 @@ class MDFloatingActionButtonSpeedDial(ThemableBehavior, FloatLayout):
             for widget in self.children:
                 if isinstance(widget, MDFloatingLabel) and self.hint_animation:
                     Animation.cancel_all(widget)
-                    for item in self.data.items():
-                        if widget.text in item:
+                    if self.data[instance.icon] == widget.text:
+                        Animation(
+                            _canvas_width=0,
+                            _padding_right=0,
+                            d=self.opening_time,
+                            t=self.opening_transition,
+                        ).start(instance)
+                        if self.hint_animation:
                             Animation(
-                                _canvas_width=0,
-                                _padding_right=0,
-                                d=self.opening_time,
-                                t=self.opening_transition,
-                            ).start(instance)
-                            if self.hint_animation:
-                                Animation(
-                                    opacity=0, d=0.1, t=self.opening_transition
-                                ).start(widget)
-                            break
-                    break
+                                opacity=0, d=0.1, t=self.opening_transition
+                            ).start(widget)
+                        break
 
     def on_enter(self, instance):
         """Called when the mouse cursor is over a button from the stack."""
@@ -1838,22 +1414,20 @@ class MDFloatingActionButtonSpeedDial(ThemableBehavior, FloatLayout):
             for widget in self.children:
                 if isinstance(widget, MDFloatingLabel) and self.hint_animation:
                     widget._elevation = 0
-                    for item in self.data.items():
-                        if widget.text in item:
+                    if self.data[instance.icon] == widget.text:
+                        Animation(
+                            _canvas_width=widget.width + dp(24),
+                            _padding_right=dp(5) if self.right_pad else 0,
+                            d=self.opening_time,
+                            t=self.opening_transition,
+                        ).start(instance)
+                        if self.hint_animation:
                             Animation(
-                                _canvas_width=widget.width + dp(24),
-                                _padding_right=dp(5) if self.right_pad else 0,
+                                opacity=1,
                                 d=self.opening_time,
                                 t=self.opening_transition,
-                            ).start(instance)
-                            if self.hint_animation:
-                                Animation(
-                                    opacity=1,
-                                    d=self.opening_time,
-                                    t=self.opening_transition,
-                                ).start(widget)
-                            break
-                    break
+                            ).start(widget)
+                        break
 
     def on_data(self, instance, value):
         """Creates a stack of buttons."""
@@ -1991,8 +1565,8 @@ class MDFloatingActionButtonSpeedDial(ThemableBehavior, FloatLayout):
                             opacity=1, d=self.opening_time
                         )
                 elif (
-                    isinstance(widget, MDFloatingRootButton)
-                    and self.root_button_anim
+                        isinstance(widget, MDFloatingRootButton)
+                        and self.root_button_anim
                 ):
                     # Rotates the root button 45 degrees.
                     Animation(
@@ -2046,8 +1620,8 @@ class MDFloatingActionButtonSpeedDial(ThemableBehavior, FloatLayout):
             elif isinstance(widget, MDFloatingLabel):
                 Animation(opacity=0, d=0.1).start(widget)
             elif (
-                isinstance(widget, MDFloatingRootButton)
-                and self.root_button_anim
+                    isinstance(widget, MDFloatingRootButton)
+                    and self.root_button_anim
             ):
                 Animation(
                     _angle=0,
